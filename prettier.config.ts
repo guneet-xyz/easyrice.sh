@@ -1,7 +1,7 @@
 import { type Config } from "prettier"
 
 const config: Config = {
-  trailingComma: "none",
+  trailingComma: "all",
   semi: false,
   plugins: [
     "prettier-package-json",

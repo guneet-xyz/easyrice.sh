@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <div className="flex p-4 justify-between">
       <div>
-        <div>easyshell</div>
+        <div>easyrice</div>
       </div>
       <div>
         <ThemeToggle />

@@ -2,4 +2,5 @@
 .next
 .wrangler
 node_modules
+_data
 

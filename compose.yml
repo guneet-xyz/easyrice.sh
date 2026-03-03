@@ -1,0 +1,47 @@
+services:
+  db:
+    container_name: easyrice-dev-db
+    image: postgres:17
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./_data/postgres:/var/lib/postgresql/data
+    restart: always
+    ports:
+      - 5432:5432
+  drizzle-proxy:
+    image: cr.guneet.xyz/common/drizzle-proxy:latest
+    container_name: easyrice-dev-drizzle-proxy
+    environment:
+      DATABASE_URL: postgres://postgres:password@db/easyrice
+      TOKEN: token
+    ports:
+      - 8008:8008
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8008/health"]
+      interval: 1s
+      timeout: 500ms
+      retries: 3
+    depends_on:
+      db:
+        condition: service_started
+  website:
+    build:
+      context: .
+      dockerfile: .
+    container_name: easyshell-dev-website
+    environment:
+      APP: website
+      AUTH_TRUST_HOST: true
+      DRIZZLE_PROXY_URL: http://db-proxy:8008
+      DRIZZLE_PROXY_TOKEN: token
+    ports:
+      - 3000:3000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 1s
+      timeout: 500ms
+      retries: 3
+    depends_on:
+      drizzle-proxy:
+        condition: service_healthy
