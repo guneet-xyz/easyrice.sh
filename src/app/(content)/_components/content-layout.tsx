@@ -15,6 +15,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { getNavConfig, getPrevNext, type NavConfig } from "./nav"
+import { TableOfContents } from "./table-of-contents"
 
 type NavLinksProps = {
   config: NavConfig
@@ -103,7 +104,7 @@ export function ContentLayout({ children }: { children: React.ReactNode }) {
   if (!config) return <>{children}</>
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-1 gap-8 p-6">
+    <div className="mx-auto flex w-full max-w-7xl flex-1 gap-8 p-6">
       <aside className="hidden w-56 shrink-0 md:block">
         <div className="sticky top-6">
           <h3 className="mb-4 text-lg font-bold">{config.title}</h3>
@@ -140,6 +141,10 @@ export function ContentLayout({ children }: { children: React.ReactNode }) {
         {children}
         <PrevNextNav pathname={pathname} />
       </main>
+
+      <aside className="hidden w-48 shrink-0 lg:block">
+        <TableOfContents />
+      </aside>
     </div>
   )
 }
