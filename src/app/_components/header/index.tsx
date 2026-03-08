@@ -18,7 +18,9 @@ export default function Header() {
       <div className="flex items-center gap-2">
         {isPending ? null : session ? (
           <Button variant="ghost" asChild>
-            <Link href="/profile">{session.user.username}</Link>
+            <Link href={`/users/${session.user.username}`}>
+              {session.user.username}
+            </Link>
           </Button>
         ) : (
           <Button variant="ghost" asChild>
