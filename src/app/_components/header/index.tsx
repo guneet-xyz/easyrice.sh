@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <div className="flex p-4 justify-between h-16">
       <div>
-        <div>easyrice</div>
+        <Link href="/">easyrice</Link>
       </div>
       <div className="flex items-center gap-2">
         {isPending ? null : session ? (
