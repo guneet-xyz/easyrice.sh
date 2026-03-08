@@ -1,8 +1,5 @@
 import { cn } from "@/lib/utils"
 import {
-  PiAppleLogo,
-  PiAppleLogoBold,
-  PiAppleLogoDuotone,
   PiDiscordLogo,
   PiDiscordLogoDuotone,
   PiGithubLogo,

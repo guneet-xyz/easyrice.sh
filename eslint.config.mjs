@@ -5,7 +5,13 @@ import { defineConfig, globalIgnores } from "eslint/config"
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTypescript,
-  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
+  globalIgnores([
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    "cloudflare-env.d.ts",
+  ]),
 ])
 
 export default eslintConfig
