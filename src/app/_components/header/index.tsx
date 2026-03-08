@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { useSession } from "@/lib/client/auth"
+import { Settings } from "lucide-react"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 
@@ -11,17 +12,25 @@ export default function Header() {
   const { data: session, isPending } = useSession()
 
   return (
-    <div className="flex p-4 justify-between">
+    <div className="flex p-4 justify-between h-16">
       <div>
         <div>easyrice</div>
       </div>
       <div className="flex items-center gap-2">
         {isPending ? null : session ? (
-          <Button variant="ghost" asChild>
-            <Link href={`/users/${session.user.username}`}>
-              {session.user.username}
-            </Link>
-          </Button>
+          <>
+            <Button variant="ghost" asChild>
+              <Link href={`/users/${session.user.username}`}>
+                {session.user.username}
+              </Link>
+            </Button>
+            <Button variant="ghost" size="icon-sm" asChild>
+              <Link href="/settings">
+                <Settings className="size-4" />
+                <span className="sr-only">Settings</span>
+              </Link>
+            </Button>
+          </>
         ) : (
           <Button variant="ghost" asChild>
             <Link href="/signin">Sign In</Link>
