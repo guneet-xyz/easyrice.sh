@@ -31,12 +31,10 @@ export function UserSettings({ name, username, image }: UserSettingsProps) {
         <CardDescription>Manage your profile information.</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
-        {/* Avatar */}
         <Suspense fallback={<AvatarSkeleton />}>
           <AvatarEdit name={name} image={image} />
         </Suspense>
 
-        {/* Name */}
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <span className="text-muted-foreground text-sm">Name</span>
@@ -49,7 +47,6 @@ export function UserSettings({ name, username, image }: UserSettingsProps) {
 
         <Separator />
 
-        {/* Username */}
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <span className="text-muted-foreground text-sm">Username</span>

@@ -26,6 +26,6 @@ export const db = drizzle(
     }
   },
   {
-    schema: schema,
+    schema,
   },
 )

@@ -30,7 +30,7 @@ export function DynamicIconThemed({
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 dark:group-hover:opacity-0 transition-opacity dark:opacity-100">
         {darkNoHover}
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 dark:group-hover:opacity-100 dark:opacity-100 transition-opacity-100">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 dark:group-hover:opacity-100 dark:opacity-100 transition-opacity">
         {darkHover}
       </div>
     </div>

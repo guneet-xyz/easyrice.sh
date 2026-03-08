@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
 import { PiMoon, PiMoonDuotone, PiSun, PiSunDuotone } from "react-icons/pi"
 
-export default function ThemeToggle() {
+export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
   return (
     <div>
@@ -16,7 +16,7 @@ export default function ThemeToggle() {
         }}
         className="aspect-square cursor-pointer group"
       >
-        {theme == "light" ? (
+        {theme === "light" ? (
           <DynamicIcon noHover={<PiSun />} hover={<PiSunDuotone />} />
         ) : (
           <DynamicIcon noHover={<PiMoon />} hover={<PiMoonDuotone />} />

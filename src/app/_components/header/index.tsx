@@ -6,9 +6,12 @@ import { Settings } from "lucide-react"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 
-const ThemeToggle = dynamic(() => import("./theme-toggle"), { ssr: false })
+const ThemeToggle = dynamic(
+  () => import("./theme-toggle").then((mod) => mod.ThemeToggle),
+  { ssr: false },
+)
 
-export default function Header() {
+export function Header() {
   const { data: session, isPending } = useSession()
 
   return (
