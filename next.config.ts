@@ -1,5 +1,4 @@
-// Enable calling `getCloudflareContext()` in `next dev`.
-// See https://opennext.js.org/cloudflare/bindings#local-access-to-bindings.
+// https://opennext.js.org/cloudflare/bindings#local-access-to-bindings
 import createMDX from "@next/mdx"
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare"
 import type { NextConfig } from "next"

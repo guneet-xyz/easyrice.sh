@@ -42,7 +42,7 @@ function extractTitle(raw: string): string {
 }
 
 function stripMdx(raw: string): string {
-  // Remove the metadata export block (may span multiple lines)
+  // metadata blocks may span multiple lines
   const withoutMeta = raw.replace(
     /export\s+const\s+metadata\s*=\s*\{[^}]*\}\s*/g,
     "",
