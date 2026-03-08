@@ -3,7 +3,7 @@ import axios from "axios"
 import { drizzle } from "drizzle-orm/pg-proxy"
 import * as schema from "./schema"
 
-const endpoint = `${env.DRIZZLE_PROXY_TOKEN}/query`
+const endpoint = `${env.DRIZZLE_PROXY_URL}/query`
 const authHeader = `Bearer ${env.DRIZZLE_PROXY_TOKEN}`
 
 export const db = drizzle(
@@ -12,12 +12,12 @@ export const db = drizzle(
       // I have no idea why this doesn't work with fetch()
       const rows: { data: unknown[] } = await axios.post(
         endpoint,
-        { sql, params, method },
+        { sql, params, method, database: "easyrice" },
         {
           headers: {
-            Authorization: authHeader
-          }
-        }
+            Authorization: authHeader,
+          },
+        },
       )
 
       return { rows: rows.data }
@@ -27,6 +27,6 @@ export const db = drizzle(
     }
   },
   {
-    schema: schema
-  }
+    schema: schema,
+  },
 )
